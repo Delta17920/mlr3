@@ -28,11 +28,19 @@ A 500-point simulated time series with a mix of strong and weak mean shifts:
 
 Segments 2 and 3 have very similar means (3 vs 3.5), so PELT merges them into one while BinSeg detects the subtle shift between them.
 
-## Key Differences Observed
+## Results
 | | Dataset 1 | Dataset 2 |
 |---|---|---|
-| **PELT** | Oversegments due to high noise | Misses weak shift between segments 2 and 3 |
-| **BinSeg** | More conservative, fewer breaks | Detects the subtle shift PELT misses |
+| **PELT** | 17, 19, 129, 249, 340, 409, 417, 456, 462 | 101, 241, 360 |
+| **BinSeg** | 129, 249, 340 | 101, 221, 241, 360 |
+
+- **Dataset 1**: PELT finds 9 breakpoints due to high noise, BinSeg correctly finds only 3
+- **Dataset 2**: BinSeg detects the subtle shift at position 221 (between segments mean=3 and mean=3.5) that PELT completely misses
+
+## Observations
+- **PELT on noisy data**: When the signal has high noise and small mean differences (Dataset 1), PELT tends to oversegment - it finds many false change-points because it is sensitive to local fluctuations. BinSeg is more conservative and sticks closer to the true number of segments.
+- **BinSeg on weak shifts**: When two adjacent segments have very similar means (Dataset 2, segments mean=3 and mean=3.5), PELT treats them as one segment and misses the change-point. BinSeg successfully detects this subtle shift at position 221.
+- **Overall**: Neither algorithm is universally better - PELT performs well on clean sharp shifts while BinSeg handles subtle and weak shifts more reliably. This trade-off is exactly why comparing algorithms across different data conditions matters.
 
 ## Files
 | File | Description |
