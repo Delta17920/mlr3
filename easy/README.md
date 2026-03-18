@@ -1,4 +1,4 @@
-# Easy Test — Change-Point Detection using PELT
+# Easy Test - Change-Point Detection using PELT
 
 ## Objective
 Run a change-point detection algorithm on a simulated dataset and plot the results.
