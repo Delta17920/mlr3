@@ -1,6 +1,6 @@
 # mlr3changepoint - GSoC Test Submissions
 
-This repository contains solutions to the Easy, Medium, and Hard tests for the [mlr3changepoint GSoC project](https://github.com/rstats-gsoc/gsoc2025/wiki/mlr3changepoint).
+This repository contains solutions to the Easy, Medium, and Hard tests for the [mlr3changepoint GSoC project](https://github.com/rstats-gsoc/gsoc2026/wiki/mlr3changepoint).
 
 ## Tests Completed
 
