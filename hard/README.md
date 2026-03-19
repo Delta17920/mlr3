@@ -14,7 +14,7 @@ Following the methodology from [Toby Hocking's supervised changepoint tutorial](
 
 - **5-Fold CV** - labeled sequences assigned to 5 folds; each fold used as test set once, trained on remaining 4 folds
 - **IntervalRegressionCV** - L1-regularized interval regression with AUC-based CV model selection
-- **BIC/SIC baseline** - unsupervised penalty using `log2.n` feature (log of number of data points)
+- **BIC/SIC baseline** - unsupervised penalty using `log2.n` feature (log2 of number of data points), which approximates the BIC/SIC penalty log(log(n)) as described in the tutorial
 - **Constant baseline** - best constant penalty chosen by maximizing correct labels on train set
 - All 3 models compared on the same ROC plot per fold
 
